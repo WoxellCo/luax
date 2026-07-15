@@ -1199,6 +1199,7 @@ size_t luax_to_function(const luax_element *xml, size_t max_len, luax_str_view *
     shift = 0;
     if (xml->inner.count > 0) {
         for (size_t i = 0; i < xml->inner.count; i++) {
+            size_t buffer_len;
             switch (xml->inner.types[i])
             {
             case luaxt_element:
@@ -1213,7 +1214,7 @@ size_t luax_to_function(const luax_element *xml, size_t max_len, luax_str_view *
                 out->len += snprintf(out->s + out->len, max_len, "(%s), ", buffers[2]);
                 break;
             case luaxt_text:
-                size_t buffer_len = luax_sanitize_escape(buffers[2], xml->inner.data[i].text.s, max_len, max_len);
+                buffer_len = luax_sanitize_escape(buffers[2], xml->inner.data[i].text.s, max_len, max_len);
                 //out->len += snprintf(out->s + out->len, max_len, "[[%s]], ", xml->inner.data[i].text.s);
                 out->len += snprintf(out->s + out->len, max_len, "\"%s\", ", buffers[2]);
                 break;

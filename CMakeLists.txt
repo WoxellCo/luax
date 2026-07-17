@@ -9,12 +9,12 @@ set(CMAKE_C_EXTENSIONS        OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(${PROJECT_NAME} STATIC src/luax.c
-    src/luax_map.c src/regex.c src/str.c
+    src/regex.c
     src/luax_memory.c
     src/nx/list.c src/nx/vector.c src/nx/stack.c
     src/main.c)
 
-add_executable(${PROJECT_NAME}c src/luax.c src/luax_map.c src/regex.c src/str.c
+add_executable(${PROJECT_NAME}c src/luax.c src/regex.c
     src/luax_memory.c
     src/nx/list.c src/nx/vector.c src/nx/stack.c
     src/main.c)

@@ -1413,22 +1413,10 @@ luax_transpile_result luax_transpile(const luax_char *txt, size_t max_length, lu
             }
             n = n->next;
         }
-        //printf(">>>>>>>>>>>>>>.%s\n", o.s);
-        //strncat(o.s, txt + is, max_length);   
-        //os = strlen(txt + is);
-        //printf("%zu | %zu\n", shift, is < os ? os - is : is - os);
-        //printf("%zu | %zu\n", shift, shift + os); // <= solution!
-        /*strncpy(o.s + o.len, txt + is, os < max_length ? os : max_length);
-        o.len += os;*/
-        //strncpy(o.s + o.len, txt + is, min(o.len + os - (shift - is), max_length));
         strncpy(o.s + o.len, txt + is, min(shift + os - is, max_length));
-        //printf("lengthh: %zu\n|%s|\n", o.len + min(o.len + os - (shift - is), max_length), o.s); <<< FAULT
-        //printf("lengthh: %zu\n|%s|\n", o.len + min(shift + os - is, max_length), txt + is);      <<< FIXED
-        //printf("IS: %zu\n", is);
-        //o.len += os;
+        
         o.len = min(shift + os, max_length);
         o.s[o.len] = '\0';
-        //printf("lengthhhhh2: %zu\n", o.len);
     } else return (luax_transpile_result) {
         .result = {
             .first = {

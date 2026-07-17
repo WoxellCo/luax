@@ -11,7 +11,7 @@ extern "C" {
 #include "nx/list.h"
 #include "nx/stack.h"
 
-#include "regex.h"
+#include "luax_regex.h"
 
 #include "luax_memory.h"
 

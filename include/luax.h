@@ -21,9 +21,6 @@ struct { \
     e error; \
 }
 
-// luax_##r##_##e##_result
-//luax_ptr_len
-
 #define luax_vector(t) \
 struct { \
     t *v; \
@@ -41,36 +38,6 @@ struct { \
 #define LUAX_TAG_CLOSE              (1 << 2)
 #define LUAX_TAG_ERROR              (1 << 3)
 #define LUAX_TAG_TYPE_NOT_XML       (1 << 3)
-
-//#define LUAX_TRANS_BRACES_DELIM     (1 << 0)
-
-/*#define luax_sl_add(l, data) ;{\
-    struct luax_segment_node *n = (struct luax_segment_node *)malloc(sizeof(struct luax_segment_node));\
-    if ((l).tail != NULL) {\
-        (l).tail->next = n;\
-        (l).tail = n;\
-    } else {\
-        (l).head = n;\
-        (l).tail = n;\
-    }\
-    *n = (struct luax_segment_node)(data);\
-}*/
-
-/*#define luax_sl_emplace(l, type, range, data) {\
-    struct luax_segment_node n;\
-    n.t##ype = (type);\
-    n.r##ange = (range);\
-    n.d##ata = (data);\
-    n.n##ext = NULL;\
-    #if ((type) == luax_st_xml)\
-        n.da##ta.xml = (data);\
-    #elif ((type) == luax_st_regex)\
-        n.da##ta.rex = (data);\
-    #endif\
-    luax_sl_add((l), n);\
-}*/
-
-int test();
 
 typedef char luax_char;
 

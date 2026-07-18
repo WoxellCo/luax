@@ -3,7 +3,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include "regex.h"
+#include "luax_regex.h"
 
 #define HTMW_INIT_MEMV_SIZE 1024
 

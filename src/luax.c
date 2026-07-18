@@ -397,7 +397,7 @@ size_t luax_analyze_neutral(const luax_str_view txt) {
 //typedef result(vector(struct luax_idx_len), uint8_t) luax_result;
 #define kw_list(kw) (luax_str_view){(kw), sizeof(kw) / sizeof((kw)[0]) - 1}
 size_t luax_analyze_keyword(const char *s) {
-    static const luax_str_view keywords[22] = {
+    static luax_str_view keywords[22] = {
         kw_list("return"),
         kw_list("if"),
         kw_list("then"),
@@ -1050,7 +1050,7 @@ luax_parse_xml_tag_result luax_parse_xml_tag(const luax_str_view txt, luax_conte
 struct luax_xml_s {
     luax_element *top;
     size_t n;
-    uint8_t errno;
+    uint8_t err_no;
 };
 // NULL and zero if error
 
